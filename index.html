@@ -2,6 +2,7 @@
 <html>
   <head>
     <title>Godzilla Online Museum</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
       @keyframes padrao{
         from{opacity:0.0;}
@@ -10,11 +11,44 @@
       img{border-radius:max(1vh,1vw);}
       body{background:rgb(0,0,0);animation:padrao 6s;}
       :not(p){color:white;font-family:monospace;text-shadow:0px 0px 3px white,0px 0px 5px white;}
+      .op1{width:min(8vh,8vw);height:min(8vh,8vw);background:transparent;font-size:min(6vh,6vw);border:0px none;margin:0px;padding:0px;text-shadow:0px 0px 3px black,0px 0px 5px black;}
+      .op1:hover{width:min(8vh,8vw);height:min(8vh,8vw);background:transparent;font-size:min(7vh,7vw);border:0px none;margin:0px;padding:0px;text-shadow:0px 0px 3px black,0px 0px 5px black;}
     </style>
+    <script>
+      function tocar(){
+        var audio = document.getElementById("player");
+        if(audio.paused){
+          document.getElementById("control").innerHTML = "<i class=\"fa fa-pause\"></i>";
+          audio.play();
+        }else{
+          document.getElementById("control").innerHTML = "<i class=\"fa fa-play\"></i>";
+          audio.pause();
+        }
+      }
+      function menos(){
+        var audio = document.getElementById("player");
+        audio.volume = audio.volume - 0.1;
+        if(audio.volume < 0.0){
+          audio.volume = 0.0;
+        }
+      }
+      function mais(){
+        var audio = document.getElementById("player");
+        audio.volume = audio.volume + 0.1;
+        if(audio.volume > 1.0){
+          audio.volume = 1.0;
+        }
+      }
+    </script>
   </head>
   <body>
-    <div style="position:fixed;bottom:0px;left:0px;right:0px;z-index:2;" align="center">
-      <audio preload="auto" volume="0.5" controls loop style="width:100%;">
+    <div style="position:fixed;bottom:5vh;left:0px;right:0px;z-index:2;" align="center">
+      <button class="op1" id="volume_minus" onmousedown="menos()">-</button>
+      <button class="op1" id="control" onmousedown="tocar()"><i class="fa fa-play"></i></button>
+      <button class="op1" id="volume_plus" onmousedown="mais()">+</button>
+    </div>
+    <div style="position:fixed;bottom:100vh;left:0px;right:0px;z-index:-1;" align="center">
+      <audio preload="auto" volume="0.5" controls loop style="width:100%;" id="player">
         <source src="assets/tema.webm" type="audio/webm">
         <source src="assets/tema.mp3" type="audio/mpeg">
       </audio>
@@ -272,8 +306,8 @@
       <div style="display:flex;flex-direction:row;">
         <img src="assets/asset_049.webp" style="width:min(25vh,25vw);margin-right:1vh;"/>
         <div style="width:min(50vh,50vw);">
-          Kaiju "Zilla", confundido pelos Americanos com o Godzilla e ganhou um filme americano em 1998 produzido pela Tristar.<br/><br/>
-          Posteriormente o lagarto voltaria a aparecer em "Godzilla: Final Wars" de 2004 e integrado a cronologia de Godzilla.
+          <span style="font-size:2vh;">Kaiju "Zilla", confundido pelos Americanos com o Godzilla e ganhou um filme americano em 1998 produzido pela Tristar.<br/><br/>
+          Posteriormente o lagarto voltaria a aparecer em "Godzilla: Final Wars" de 2004 e integrado a cronologia de Godzilla.</span>
         </div>
       </div>
     </div>
@@ -445,6 +479,32 @@
       <div style="display:flex;flex-direction:row;">
         <span style="font-size:min(5vh,5vw);">MonsterVerse</span>
         <span>(2015-agora!)</span>
+      </div>
+      <div style="display:flex;flex-direction:row;height:56vh;width:min(90vh,90vw);overflow:scroll;">
+        <div style="display:flex;flex-direction:column;margin-right:1vh;">
+          <img src="assets/asset_080.webp" style="height:min(48vh,48vw);">
+          <span style="font-size:min(3vh,3vw);">2015</span>
+        </div>
+        <div style="display:flex;flex-direction:column;margin-right:1vh;">
+          <img src="assets/asset_081.webp" style="height:min(48vh,48vw);">
+          <span style="font-size:min(3vh,3vw);">2017</span>
+        </div>
+        <div style="display:flex;flex-direction:column;margin-right:1vh;">
+          <img src="assets/asset_082.webp" style="height:min(48vh,48vw);">
+          <span style="font-size:min(3vh,3vw);">2019</span>
+        </div>
+        <div style="display:flex;flex-direction:column;margin-right:1vh;">
+          <img src="assets/asset_083.webp" style="height:min(48vh,48vw);">
+          <span style="font-size:min(3vh,3vw);">2021</span>
+        </div>
+        <div style="display:flex;flex-direction:column;margin-right:1vh;">
+          <img src="assets/asset_084.webp" style="height:min(48vh,48vw);">
+          <span style="font-size:min(3vh,3vw);">2024</span>
+        </div>
+        <div style="display:flex;flex-direction:column;margin-right:1vh;">
+          <img src="assets/asset_085.webp" style="height:min(48vh,48vw);">
+          <span style="font-size:min(3vh,3vw);">2027</span>
+        </div>
       </div>
     </div>
     <!-- Página 008 -->
